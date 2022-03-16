@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Celebrity</title>
+
+    <script src="https://kit.fontawesome.com/aba7910736.js" crossorigin="anonymous"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar_logo">
+            <i class="fa-brands fa-angellist"></i>
+            <a href="index.html"><b>R</b>esponsive <b>W</b>eb</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="celebrity01.html"><b>C</b>elebrity</a></li>
+            <li><a href="flower02.html"><b>F</b>lower</a></li>
+            <li><a href="animal03.html"><b>A</b>nimal</a></li>
+        </ul>
+        <a href="#" class="navbar_toggleBtn">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+    </header>
+    <main>
+        <div class="top">
+            <p>
+                반응형 웹페이지입니다.<br>Menu1 - celebrity
+            </p>
+        </div>
+
+        <div class="bottom"  x-data="{ tab: 'all' }">
+            <h2>Celebrity</h2>
+            <div class="btn">
+                <ul class="sort">
+                    <li class="item">
+                        <a href="#" @click.prevent="tab = 'all'" :class="{ 'active' : tab === 'all' }">All</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" @click.prevent="tab = 'at'" :class="{ 'active' : tab === 'at' }">Actor</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" @click.prevent="tab = 'sr'" :class="{ 'active' : tab === 'sr' }">Singer</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="images">
+                <div class="singleImg" x-show="tab === 'at' || tab === 'all'">
+                    <img src="./img/songkang.jpg" alt="flower_01" title="flower_01">
+                    <p>송강</p>
+                </div>
+                <div class="singleImg" x-show="tab === 'at' || tab === 'all'">
+                    <img src="./img/yejin.jpg" alt="flowerpot_01" title="flowerpot_01">
+                    <p>손예진</p>
+                </div>
+                <div class="singleImg" x-show="tab === 'sr' || tab === 'at' || tab === 'all'">
+                    <img src="./img/dujun.jpg" alt="flower_02" title="flower_02">
+                    <p>윤두준</p>
+                </div>
+                <div class="singleImg" x-show="tab === 'sr' || tab === 'all'">
+                    <img src="./img/taeyeon.jpg" alt="flowerpot_02" title="flowerpot_02">
+                    <p>태연</p>
+                </div>
+                <div class="singleImg" x-show="tab === 'sr' || tab === 'at' || tab === 'all'">
+                    <img src="./img/junho.jpg" alt="flower_03" title="flower_03">
+                    <p>김준호</p>
+                </div>
+                <div class="singleImg" x-show="tab === 'at' || tab === 'all'">
+                    <img src="./img/minyoung.jpg" alt="flowerpot_03" title="flowerpot_03">
+                    <p>박민영</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2022 na-hyeon. All Rights Reserved.</p>
+    </footer>
+
+
+
+    <!-- style -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #000;
+            text-decoration: none;
+        }
+        body {
+            -ms-overflow-style: none;
+        }
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
+        a {
+            text-decoration: none;
+        }
+
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 30px;
+        }
+        .navbar .navbar_logo {
+            font-size: 24px;
+        }
+        .navbar .navbar_logo i {}
+        .navbar .navbar_logo a {}
+        .navbar .navbar_logo a b {}
+        .navbar .navbar_menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        .navbar .navbar_menu li {
+            padding: 8px 12px;
+        }
+        .navbar .navbar_menu li a:hover {
+            color: lightslategray;
+        }
+
+        .navbar .navbar_toggleBtn {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 24px;
+            display: none;
+        }
+
+
+        main {}
+        main .top {
+            background-image: url(./img/big_hollywood.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            height: 470px;
+        }
+        main .top p {
+            color: white;
+            padding: 230px 0;
+            font-size: 18px;
+        }
+        main .bottom {
+            margin: 80px 50px;
+            text-align: center;
+        }
+        main .bottom h2 {
+            margin: 20px 0;
+        }
+        main .bottom .btn {}
+        main .bottom .btn .sort {
+            display: flex;
+            justify-content: center;
+            
+        }
+        main .bottom .btn .sort .item {
+            width: 70px;
+            padding: 0 40px;
+            margin-bottom: 50px;
+        }
+        main .bottom .btn .sort .item a {
+            color: gray;
+        }
+        main .bottom .btn .sort .item a:hover,
+        main .bottom .btn .sort .item a.active {
+            color: darkblue;
+            border-bottom: 2px solid darkblue;
+        }
+        main .bottom .images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        main .bottom .images .singleImg {
+            width: 200px;
+            margin: 10px 10px;
+        }
+        main .bottom .images .singleImg img {
+            width: 100%;
+        }
+        main .bottom .images .singleImg p {}
+
+
+        footer {
+            position: relative;
+            bottom: 0;
+            background-color: black;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            color: #fff;
+        }
+
+
+
+
+        /* 3개 분기점 */
+        /* PC (해상도 1024px)*/ 
+        @media all and (min-width:1024px) { /*스타일입력*/} 
+
+        /* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/ 
+        @media all and (min-width:768px) and (max-width:1023px) { 
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 0;
+            }
+            .navbar .navbar_logo {
+                padding-bottom: 24px;
+            }
+            .navbar .navbar_menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .navbar .navbar_menu li {
+                width: 100%;
+                text-align: center;
+                padding: 16px 0;
+            }
+            .navbar .navbar_menu li a:hover {
+                width: 100%;
+                color: #000;
+                border-bottom: 2px solid #000;
+            }
+            .navbar .navbar_toggleBtn {
+                display: block;
+            }
+
+            .navbar .navbar_menu.active {
+                display: block;
+            }
+            
+
+            main {}
+            main .top {}
+            main .top p {
+                padding: 230px 0;
+            }
+            main .bottom {}
+            main .bottom ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            main .bottom ul li {
+                margin: 0;
+                width: 33%;
+            }
+            main .bottom ul li img {
+                width: 100%;
+            }
+        } 
+
+        /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/ 
+        @media all and (max-width:767px) { 
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 0;
+            }
+            .navbar .navbar_logo {
+                padding-bottom: 24px;
+            }
+            .navbar .navbar_menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .navbar .navbar_menu li {
+                width: 100%;
+                text-align: center;
+                padding: 16px 0;
+            }
+            .navbar .navbar_menu li a:hover {
+                width: 100%;
+                color: #000;
+                border-bottom: 2px solid #000;
+            }
+            .navbar .navbar_toggleBtn {
+                display: block;
+            }
+
+            .navbar .navbar_menu.active {
+                display: block;
+            }
+
+            main {}
+            main .top {}
+            main .top p {
+                padding: 230px 0;
+            }
+            main .bottom {
+                margin: 80px 0;
+            }
+            main .bottom .btn {}
+            main .bottom .btn .sort {}
+            main .bottom .btn .sort .item {
+                width: 67px;
+                padding: 0 30px;
+            }
+            main .bottom .btn .sort .item a {}
+            main .bottom .images {
+            }
+            main .bottom .images .singleImg {}
+            main .bottom .images .singleImg img {}
+        }
+    </style>
+</body>
+</html>
